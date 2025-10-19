@@ -15,7 +15,7 @@ namespace TMDT.Use
 
         }
 
-        private void lblTitle_Click(object sender, EventArgs e)
+        private void LblTitle_Click(object sender, EventArgs e)
         {
 
         }
