@@ -56,6 +56,7 @@
             this.btnThongKe.TabIndex = 4;
             this.btnThongKe.Text = "Thống kê doanh thu";
             this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // btnDonHang
             // 
@@ -68,6 +69,7 @@
             this.btnDonHang.TabIndex = 3;
             this.btnDonHang.Text = "Quản lý đơn hàng";
             this.btnDonHang.UseVisualStyleBackColor = true;
+            this.btnDonHang.Click += new System.EventHandler(this.btnDonHang_Click);
             // 
             // btnKhachHang
             // 
@@ -80,6 +82,7 @@
             this.btnKhachHang.TabIndex = 2;
             this.btnKhachHang.Text = "Quản lý khách hàng";
             this.btnKhachHang.UseVisualStyleBackColor = true;
+            this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
             // 
             // btnSanPham
             // 
@@ -92,6 +95,7 @@
             this.btnSanPham.TabIndex = 1;
             this.btnSanPham.Text = "Quản lý sản phẩm";
             this.btnSanPham.UseVisualStyleBackColor = true;
+            this.btnSanPham.Click += new System.EventHandler(this.btnSanPham_Click);
             // 
             // lblAdmin
             // 
@@ -116,6 +120,7 @@
             this.btnDangXuat.TabIndex = 6;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.UseVisualStyleBackColor = false;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // panelMain
             // 

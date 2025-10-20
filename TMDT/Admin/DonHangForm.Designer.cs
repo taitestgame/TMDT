@@ -54,6 +54,7 @@
             this.dgvDonHang.RowHeadersVisible = false;
             this.dgvDonHang.Size = new System.Drawing.Size(560, 160);
             this.dgvDonHang.TabIndex = 1;
+            this.dgvDonHang.SelectionChanged += new System.EventHandler(this.dgvDonHang_SelectionChanged);
             // 
             // lblChiTiet
             // 
@@ -118,6 +119,7 @@
             this.btnCapNhat.TabIndex = 6;
             this.btnCapNhat.Text = "Cập nhật";
             this.btnCapNhat.UseVisualStyleBackColor = false;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnXoa
             // 
@@ -131,6 +133,7 @@
             this.btnXoa.TabIndex = 7;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLamMoi
             // 
@@ -144,6 +147,7 @@
             this.btnLamMoi.TabIndex = 8;
             this.btnLamMoi.Text = "Mới";
             this.btnLamMoi.UseVisualStyleBackColor = false;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // DonHangForm
             // 
