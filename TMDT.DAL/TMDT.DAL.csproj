@@ -61,6 +61,11 @@
     <Compile Include="Coupon.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Inventory.cs" />
+    <Compile Include="Migrations\202510200925165_AddIsAdminToCustomer.cs" />
+    <Compile Include="Migrations\202510200925165_AddIsAdminToCustomer.Designer.cs">
+      <DependentUpon>202510200925165_AddIsAdminToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
     <Compile Include="OrderItem.cs" />
     <Compile Include="OrderTbl.cs" />
@@ -75,6 +80,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202510200925165_AddIsAdminToCustomer.resx">
+      <DependentUpon>202510200925165_AddIsAdminToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

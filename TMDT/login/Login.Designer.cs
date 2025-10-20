@@ -111,6 +111,7 @@
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnRegister
             // 
@@ -135,6 +136,7 @@
             this.chkShowPass.TabIndex = 7;
             this.chkShowPass.Text = "Hiện mật khẩu";
             this.chkShowPass.UseVisualStyleBackColor = true;
+            this.chkShowPass.CheckedChanged += new System.EventHandler(this.chkShowPass_CheckedChanged);
             // 
             // Login
             // 

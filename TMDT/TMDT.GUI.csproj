@@ -168,6 +168,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Use\UserMain.resx">
       <DependentUpon>UserMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -187,6 +188,10 @@
     <ProjectReference Include="..\TMDT.BUS\TMDT.BUS.csproj">
       <Project>{e9bc8f15-7ea5-4f3b-b36c-514c22c11bdf}</Project>
       <Name>TMDT.BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TMDT.DAL\TMDT.DAL.csproj">
+      <Project>{49d81202-5928-4071-ba29-4754a8a6d96c}</Project>
+      <Name>TMDT.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

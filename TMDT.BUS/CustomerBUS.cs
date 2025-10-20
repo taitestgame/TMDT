@@ -7,7 +7,7 @@ using TMDT.DAL;
 
 namespace TMDT.BUS
 {
-    internal class CustomerBUS
+    public class CustomerBUS
     {
 
         private Model1 db = new Model1(); // Kết nối database
@@ -16,6 +16,12 @@ namespace TMDT.BUS
         public bool Login(string username, string password)
         {
             return db.Customers.Any(c => c.UserName == username && c.Password == password);
+        }
+
+        // Xác thực và trả về thông tin khách hàng nếu đúng tài khoản/mật khẩu
+        public Customer Authenticate(string username, string password)
+        {
+            return db.Customers.FirstOrDefault(c => c.UserName == username && c.Password == password);
         }
 
         // Đăng ký: kiểm tra trùng username/email trước khi thêm

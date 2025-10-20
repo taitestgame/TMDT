@@ -17,6 +17,7 @@ namespace TMDT.DAL
             OrderTbls = new HashSet<OrderTbl>();
             Reviews = new HashSet<Review>();
         }
+        
 
         public int CustomerID { get; set; }
 
@@ -37,6 +38,9 @@ namespace TMDT.DAL
         public string Phone { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        // Phân quyền: true = Admin, false = User thường
+        public bool IsAdmin { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Address> Addresses { get; set; }
