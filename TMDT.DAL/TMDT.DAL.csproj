@@ -65,6 +65,10 @@
     <Compile Include="Migrations\202510200925165_AddIsAdminToCustomer.Designer.cs">
       <DependentUpon>202510200925165_AddIsAdminToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202510200945428_SeedAdmin.cs" />
+    <Compile Include="Migrations\202510200945428_SeedAdmin.Designer.cs">
+      <DependentUpon>202510200945428_SeedAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.cs" />
     <Compile Include="OrderItem.cs" />
@@ -84,6 +88,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202510200925165_AddIsAdminToCustomer.resx">
       <DependentUpon>202510200925165_AddIsAdminToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202510200945428_SeedAdmin.resx">
+      <DependentUpon>202510200945428_SeedAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

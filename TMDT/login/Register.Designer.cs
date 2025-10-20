@@ -50,6 +50,10 @@
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlMain.Controls.Add(this.btnBack);
             this.pnlMain.Controls.Add(this.btnRegister);
+            this.pnlMain.Controls.Add(this.txtCity);
+            this.pnlMain.Controls.Add(this.lblCity);
+            this.pnlMain.Controls.Add(this.txtStreet);
+            this.pnlMain.Controls.Add(this.lblStreet);
             this.pnlMain.Controls.Add(this.txtPhone);
             this.pnlMain.Controls.Add(this.txtFullName);
             this.pnlMain.Controls.Add(this.txtEmail);
@@ -80,6 +84,7 @@
             this.btnBack.TabIndex = 14;
             this.btnBack.Text = "Quay lại";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnRegister
             // 
@@ -93,13 +98,14 @@
             this.btnRegister.TabIndex = 13;
             this.btnRegister.Text = "Đăng ký";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // txtPhone
             // 
             this.txtPhone.BackColor = System.Drawing.Color.AliceBlue;
             this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPhone.Location = new System.Drawing.Point(230, 292);
+            this.txtPhone.Location = new System.Drawing.Point(230, 330);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(263, 30);
             this.txtPhone.TabIndex = 12;
@@ -109,7 +115,7 @@
             this.txtFullName.BackColor = System.Drawing.Color.AliceBlue;
             this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtFullName.Location = new System.Drawing.Point(230, 256);
+            this.txtFullName.Location = new System.Drawing.Point(230, 292);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(263, 30);
             this.txtFullName.TabIndex = 11;
@@ -119,7 +125,7 @@
             this.txtEmail.BackColor = System.Drawing.Color.AliceBlue;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtEmail.Location = new System.Drawing.Point(230, 218);
+            this.txtEmail.Location = new System.Drawing.Point(230, 254);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(263, 30);
             this.txtEmail.TabIndex = 10;
@@ -129,7 +135,7 @@
             this.txtRePass.BackColor = System.Drawing.Color.AliceBlue;
             this.txtRePass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRePass.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtRePass.Location = new System.Drawing.Point(230, 169);
+            this.txtRePass.Location = new System.Drawing.Point(230, 205);
             this.txtRePass.Name = "txtRePass";
             this.txtRePass.PasswordChar = '*';
             this.txtRePass.Size = new System.Drawing.Size(263, 30);
@@ -140,7 +146,7 @@
             this.txtPass.BackColor = System.Drawing.Color.AliceBlue;
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPass.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPass.Location = new System.Drawing.Point(230, 126);
+            this.txtPass.Location = new System.Drawing.Point(230, 162);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(263, 30);
@@ -151,16 +157,36 @@
             this.txtUser.BackColor = System.Drawing.Color.AliceBlue;
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUser.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtUser.Location = new System.Drawing.Point(230, 78);
+            this.txtUser.Location = new System.Drawing.Point(230, 114);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(263, 30);
             this.txtUser.TabIndex = 7;
+            // 
+            // txtStreet
+            // 
+            this.txtStreet.BackColor = System.Drawing.Color.AliceBlue;
+            this.txtStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStreet.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtStreet.Location = new System.Drawing.Point(230, 78);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(263, 30);
+            this.txtStreet.TabIndex = 15;
+            // 
+            // txtCity
+            // 
+            this.txtCity.BackColor = System.Drawing.Color.AliceBlue;
+            this.txtCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCity.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCity.Location = new System.Drawing.Point(230, 126);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(263, 30);
+            this.txtCity.TabIndex = 16;
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblPhone.Location = new System.Drawing.Point(57, 299);
+            this.lblPhone.Location = new System.Drawing.Point(57, 337);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(115, 23);
             this.lblPhone.TabIndex = 6;
@@ -170,7 +196,7 @@
             // 
             this.lblFullName.AutoSize = true;
             this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblFullName.Location = new System.Drawing.Point(57, 256);
+            this.lblFullName.Location = new System.Drawing.Point(57, 292);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(66, 23);
             this.lblFullName.TabIndex = 5;
@@ -180,7 +206,7 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblEmail.Location = new System.Drawing.Point(57, 213);
+            this.lblEmail.Location = new System.Drawing.Point(57, 254);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(55, 23);
             this.lblEmail.TabIndex = 4;
@@ -190,7 +216,7 @@
             // 
             this.lblRePass.AutoSize = true;
             this.lblRePass.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblRePass.Location = new System.Drawing.Point(57, 171);
+            this.lblRePass.Location = new System.Drawing.Point(57, 207);
             this.lblRePass.Name = "lblRePass";
             this.lblRePass.Size = new System.Drawing.Size(155, 23);
             this.lblRePass.TabIndex = 3;
@@ -200,7 +226,7 @@
             // 
             this.lblPass.AutoSize = true;
             this.lblPass.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblPass.Location = new System.Drawing.Point(57, 128);
+            this.lblPass.Location = new System.Drawing.Point(57, 164);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(86, 23);
             this.lblPass.TabIndex = 2;
@@ -210,11 +236,31 @@
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblUser.Location = new System.Drawing.Point(57, 85);
+            this.lblUser.Location = new System.Drawing.Point(57, 119);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(128, 23);
             this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Tên đăng nhập:";
+            // 
+            // lblStreet
+            // 
+            this.lblStreet.AutoSize = true;
+            this.lblStreet.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblStreet.Location = new System.Drawing.Point(57, 80);
+            this.lblStreet.Name = "lblStreet";
+            this.lblStreet.Size = new System.Drawing.Size(66, 23);
+            this.lblStreet.TabIndex = 17;
+            this.lblStreet.Text = "Địa chỉ:";
+            // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblCity.Location = new System.Drawing.Point(57, 128);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(83, 23);
+            this.lblCity.TabIndex = 18;
+            this.lblCity.Text = "Thành phố:";
             // 
             // lblTitle
             // 
@@ -256,6 +302,8 @@
         private System.Windows.Forms.TextBox txtRePass;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.TextBox txtStreet;
+        private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Label lblEmail;
@@ -263,5 +311,7 @@
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblStreet;
+        private System.Windows.Forms.Label lblCity;
     }
 }

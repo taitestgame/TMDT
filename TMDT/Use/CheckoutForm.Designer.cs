@@ -143,6 +143,7 @@
             this.btnXacNhan.TabIndex = 10;
             this.btnXacNhan.Text = "Xác nhận thanh toán";
             this.btnXacNhan.UseVisualStyleBackColor = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // btnHuy
             // 
@@ -156,6 +157,7 @@
             this.btnHuy.TabIndex = 11;
             this.btnHuy.Text = "Hủy thanh toán";
             this.btnHuy.UseVisualStyleBackColor = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // CheckoutForm
             // 

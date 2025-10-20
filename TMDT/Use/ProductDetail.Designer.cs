@@ -123,6 +123,7 @@
             this.btnThemGioHang.TabIndex = 7;
             this.btnThemGioHang.Text = "Thêm vào giỏ";
             this.btnThemGioHang.UseVisualStyleBackColor = false;
+            this.btnThemGioHang.Click += new System.EventHandler(this.btnThemGioHang_Click);
             // 
             // btnDong
             // 
@@ -136,6 +137,7 @@
             this.btnDong.TabIndex = 8;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = false;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // ProductDetail
             // 
@@ -156,6 +158,7 @@
             this.Name = "ProductDetail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết sản phẩm";
+            this.Load += new System.EventHandler(this.ProductDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong)).EndInit();
             this.ResumeLayout(false);

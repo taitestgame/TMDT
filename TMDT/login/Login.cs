@@ -45,6 +45,9 @@ namespace TMDT
                 return;
             }
 
+            // Lưu session người dùng hiện tại
+            Session.CurrentCustomer = customer;
+
             // Phân quyền theo cột IsAdmin trong bảng Customer
             Form nextForm = customer.IsAdmin
                 ? (Form)new AdminMainForm()
@@ -58,6 +61,16 @@ namespace TMDT
         private void chkShowPass_CheckedChanged(object sender, EventArgs e)
         {
             this.txtPass.PasswordChar = this.chkShowPass.Checked ? '\0' : '*';
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            using (var registerForm = new Register())
+            {
+                registerForm.FormClosed += (s, args) => this.Show();
+                this.Hide();
+                registerForm.ShowDialog();
+            }
         }
     }
 }

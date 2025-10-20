@@ -7,7 +7,7 @@ using TMDT.DAL;
 
 namespace TMDT.BUS
 {
-    internal class ProductBUS
+    public class ProductBUS
     {
 
         private Model1 db = new Model1(); // Kết nối database

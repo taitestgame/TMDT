@@ -48,12 +48,13 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnLogout.Location = new System.Drawing.Point(891, 16);
+            this.btnLogout.Location = new System.Drawing.Point(869, 16);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(103, 32);
+            this.btnLogout.Size = new System.Drawing.Size(148, 32);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // lblTitle
             // 
@@ -65,7 +66,6 @@
             this.lblTitle.Size = new System.Drawing.Size(175, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "TRANG CHỦ";
-           
             // 
             // pnlSidebar
             // 
@@ -92,6 +92,7 @@
             this.btnProfile.TabIndex = 3;
             this.btnProfile.Text = "Tài khoản";
             this.btnProfile.UseVisualStyleBackColor = false;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnCart
             // 
@@ -105,6 +106,7 @@
             this.btnCart.TabIndex = 2;
             this.btnCart.Text = "Giỏ hàng";
             this.btnCart.UseVisualStyleBackColor = false;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // btnProducts
             // 
@@ -118,6 +120,7 @@
             this.btnProducts.TabIndex = 1;
             this.btnProducts.Text = "Sản phẩm";
             this.btnProducts.UseVisualStyleBackColor = false;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // btnHome
             // 
@@ -131,6 +134,7 @@
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Trang chủ";
             this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // pnlContent
             // 

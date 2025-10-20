@@ -7,7 +7,8 @@ using TMDT.DAL;
 
 namespace TMDT.BUS
 {
-    internal class CartBUS
+    // Business logic for shopping cart operations
+    public class CartBUS
     {
 
         private Model1 db = new Model1();

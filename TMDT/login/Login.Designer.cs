@@ -125,6 +125,7 @@
             this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "Đăng ký";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // chkShowPass
             // 

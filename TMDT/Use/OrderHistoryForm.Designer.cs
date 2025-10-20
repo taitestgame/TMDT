@@ -52,6 +52,7 @@
             this.dgvDonHang.RowHeadersWidth = 51;
             this.dgvDonHang.Size = new System.Drawing.Size(731, 160);
             this.dgvDonHang.TabIndex = 1;
+            this.dgvDonHang.SelectionChanged += new System.EventHandler(this.dgvDonHang_SelectionChanged);
             // 
             // dgvChiTiet
             // 
@@ -92,6 +93,7 @@
             this.btnDong.TabIndex = 4;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = false;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // OrderHistoryForm
             // 
