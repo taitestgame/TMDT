@@ -21,7 +21,7 @@ namespace TMDT.Admin
                 this.lblTongSanPham.Text = $"Tổng sản phẩm: {db.Products.Count():N0}";
                 this.lblTongDonHang.Text = $"Tổng đơn hàng: {db.OrderTbls.Count():N0}";
                 var revenue = db.OrderTbls.Select(o => (decimal?)o.TotalAmount).DefaultIfEmpty(0).Sum();
-                this.lblTongDoanhThu.Text = $"Tổng doanh thu: {Math.Round(revenue):N0} đ";
+                this.lblTongDoanhThu.Text = $"Tổng doanh thu: {Math.Round((decimal)(revenue ?? 0)):N0} đ";
                 this.lblTongMaGiam.Text = $"Tổng mã giảm giá: {db.Coupons.Count():N0}";
             }
         }
