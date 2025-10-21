@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
-using System.Drawing;
-using TMDT.DAL;
+using System.Windows.Forms;
 using TMDT.BUS;
+using TMDT.DAL;
 
 namespace TMDT.Use
 {
@@ -48,14 +49,24 @@ namespace TMDT.Use
                 {
                     try
                     {
-                        var req = WebRequest.Create(img.Url);
-                        using (var resp = req.GetResponse())
-                        using (var stream = resp.GetResponseStream())
+                        // Lấy đường dẫn thư mục chứa ảnh (nằm cùng project)
+                        string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+                        string imagePath = Path.Combine(imageFolder, img.Url);
+
+                        if (File.Exists(imagePath))
                         {
-                            this.picSanPham.Image = Bitmap.FromStream(stream);
+                            picSanPham.Image = Image.FromFile(imagePath);
+                        }
+                        else
+                        {
+                            // Có thể hiển thị ảnh mặc định nếu không tìm thấy
+                            // picture.Image = Image.FromFile(Path.Combine(imageFolder, "no_image.jpg"));
                         }
                     }
-                    catch { }
+                    catch
+                    {
+                        // ignore load errors
+                    }
                 }
             }
         }

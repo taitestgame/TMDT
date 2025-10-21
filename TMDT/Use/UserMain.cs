@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Windows.Forms;
-using TMDT.DAL;
-using TMDT.BUS;
-using System.Net;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Windows.Forms;
+using TMDT.BUS;
+using TMDT.DAL;
 
 namespace TMDT.Use
 {
@@ -49,13 +50,16 @@ namespace TMDT.Use
                 var categories = db.Categories.OrderBy(c => c.CategoryID).ToList();
 
                 int cardWidth = 180;
-                int cardHeight = 80;
+                int cardHeight = 100; // tăng nhẹ để đủ chỗ cho logo
                 int padding = 16;
                 int colCount = Math.Max(1, this.pnlContent.Width / (cardWidth + padding));
 
                 int x = padding;
                 int y = padding;
                 int col = 0;
+
+                // Đường dẫn thư mục chứa ảnh logo
+                string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
 
                 foreach (var cat in categories)
                 {
@@ -71,19 +75,49 @@ namespace TMDT.Use
                         Top = y
                     };
 
+                    // Thêm PictureBox hiển thị logo
+                    var picture = new PictureBox
+                    {
+                        Width = cardWidth,
+                        Height = 60,
+                        Top = 5,
+                        Left = 0,
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        Cursor = Cursors.Hand
+                    };
+
+                    // Đường dẫn ảnh: ví dụ Images\1.jpg
+                    string imagePath = Path.Combine(imageFolder, $"{cat.CategoryID}.jpg");
+                    if (File.Exists(imagePath))
+                    {
+                        picture.Image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        // Có thể dùng ảnh mặc định nếu không có logo
+                        // picture.Image = Image.FromFile(Path.Combine(imageFolder, "default.jpg"));
+                    }
+
                     var label = new Label
                     {
                         Text = cat.Name,
                         AutoSize = false,
-                        Width = cardWidth - 16,
-                        Height = cardHeight - 16,
-                        Left = 8,
-                        Top = 8
+                        Width = cardWidth,
+                        Height = 30,
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        Top = picture.Bottom + 5,
+                        Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                        Cursor = Cursors.Hand
                     };
 
+                    // Thêm controls vào panel
+                    panel.Controls.Add(picture);
                     panel.Controls.Add(label);
+
+                    // Gắn sự kiện click cho cả panel, label và picture
                     panel.Click += CategoryCard_Click;
                     label.Click += CategoryCard_Click;
+                    picture.Click += CategoryCard_Click;
 
                     this.pnlContent.Controls.Add(panel);
 
@@ -102,6 +136,7 @@ namespace TMDT.Use
 
                 this.pnlContent.AutoScrollMinSize = new Size(0, y + cardHeight + padding);
             }
+
         }
 
         private void CategoryCard_Click(object sender, EventArgs e)
@@ -169,12 +204,18 @@ namespace TMDT.Use
                     {
                         try
                         {
-                            var request = WebRequest.Create(img.Url);
-                            (request as HttpWebRequest).UserAgent = "Mozilla/5.0";
-                            using (var response = request.GetResponse())
-                            using (var stream = response.GetResponseStream())
+                            // Lấy đường dẫn thư mục chứa ảnh (nằm cùng project)
+                            string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+                            string imagePath = Path.Combine(imageFolder, img.Url);
+
+                            if (File.Exists(imagePath))
                             {
-                                picture.Image = Bitmap.FromStream(stream);
+                                picture.Image = Image.FromFile(imagePath);
+                            }
+                            else
+                            {
+                                // Có thể hiển thị ảnh mặc định nếu không tìm thấy
+                                // picture.Image = Image.FromFile(Path.Combine(imageFolder, "no_image.jpg"));
                             }
                         }
                         catch
@@ -183,6 +224,7 @@ namespace TMDT.Use
                         }
                     }
                 }
+
 
                 var label = new Label
                 {
