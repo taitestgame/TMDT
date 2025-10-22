@@ -71,13 +71,13 @@ namespace TMDT.Admin
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            using (var db = new Model1())
+            // Mở form KhachHangForm ở dạng hộp thoại (modal)
+            using (var f = new KhachHangForm())
             {
-                var customers = db.Customers
-                    .Select(c => new { c.CustomerID, c.UserName, c.FullName, c.Email, c.Phone, c.CreatedAt, c.IsAdmin })
-                    .OrderByDescending(c => c.CustomerID)
-                    .ToList();
-                ShowGrid(customers, "Danh sách khách hàng");
+                f.StartPosition = FormStartPosition.CenterParent;
+                this.Hide();
+                f.ShowDialog();
+                
             }
         }
 

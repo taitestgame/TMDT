@@ -126,11 +126,11 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.BackColor = System.Drawing.Color.Red;
+            this.btnXoa.BackColor = System.Drawing.Color.Turquoise;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.Location = new System.Drawing.Point(510, 432);
+            this.btnXoa.Location = new System.Drawing.Point(501, 430);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(74, 37);
             this.btnXoa.TabIndex = 7;
@@ -144,9 +144,9 @@
             this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnLamMoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnLamMoi.Location = new System.Drawing.Point(609, 432);
+            this.btnLamMoi.Location = new System.Drawing.Point(581, 430);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(74, 37);
+            this.btnLamMoi.Size = new System.Drawing.Size(64, 37);
             this.btnLamMoi.TabIndex = 8;
             this.btnLamMoi.Text = "Mới";
             this.btnLamMoi.UseVisualStyleBackColor = false;
@@ -154,15 +154,15 @@
             // 
             // btnDong
             // 
-            this.btnDong.BackColor = System.Drawing.Color.Silver;
+            this.btnDong.BackColor = System.Drawing.Color.Red;
             this.btnDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDong.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnDong.ForeColor = System.Drawing.Color.Black;
-            this.btnDong.Location = new System.Drawing.Point(702, 432);
+            this.btnDong.Location = new System.Drawing.Point(765, -4);
             this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(80, 37);
+            this.btnDong.Size = new System.Drawing.Size(32, 32);
             this.btnDong.TabIndex = 9;
-            this.btnDong.Text = "Đóng";
+            this.btnDong.Text = "X";
             this.btnDong.UseVisualStyleBackColor = false;
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 

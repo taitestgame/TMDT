@@ -221,7 +221,7 @@ namespace TMDT.Use
 
             foreach (var p in products)
             {
-                // ========== PANEL CHA (CARD) ==========
+                // PANEL CHA (CARD) 
                 var panel = new Panel
                 {
                     Width = cardWidth,
@@ -247,7 +247,7 @@ namespace TMDT.Use
                     }
                 };
 
-                // ========== HÌNH ẢNH SẢN PHẨM ==========
+                //  HÌNH ẢNH SẢN PHẨM 
                 var picture = new PictureBox
                 {
                     Width = cardWidth - 10,
@@ -271,7 +271,7 @@ namespace TMDT.Use
                 }
 
 
-                // ========== TÊN SẢN PHẨM ==========
+                //  TÊN SẢN PHẨM 
                 var lblName = new Label
                 {
                     Text = p.Name,
@@ -285,12 +285,12 @@ namespace TMDT.Use
                     TextAlign = ContentAlignment.TopCenter
                 };
 
-                // ========== GIÁ SẢN PHẨM ==========
+                //GIÁ SẢN PHẨM 
                 var lblPrice = new Label
                 {   
 
 
-                    Text = $"{p.Description:N0} ₫",
+                    Text = $"{p.Description:N0}",
                     AutoSize = false,
                     Width = cardWidth - 10,
                     Height = 25,
@@ -301,7 +301,7 @@ namespace TMDT.Use
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
-                // ========== HIỆU ỨNG HOVER ==========
+                //  HIỆU ỨNG HOVER
                 panel.MouseEnter += (s, e) =>
                 {
                     panel.BackColor = Color.FromArgb(250, 250, 250);
@@ -319,12 +319,12 @@ namespace TMDT.Use
                 lblPrice.Click += ProductCard_Click;
                 picture.Click += ProductCard_Click;
 
-                // ========== THÊM CONTROL ==========
+                //THÊM CONTROL 
                 panel.Controls.Add(picture);
                 panel.Controls.Add(lblName);
                 panel.Controls.Add(lblPrice);
 
-                // ========== VỊ TRÍ ==========
+                // VỊ TRÍ 
                 panel.Left = x;
                 panel.Top = y;
 
