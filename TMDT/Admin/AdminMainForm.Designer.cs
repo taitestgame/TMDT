@@ -42,7 +42,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(229, 533);
+            this.panelMenu.Size = new System.Drawing.Size(261, 560);
             this.panelMenu.TabIndex = 0;
             // 
             // btnThongKe
@@ -52,7 +52,7 @@
             this.btnThongKe.ForeColor = System.Drawing.Color.White;
             this.btnThongKe.Location = new System.Drawing.Point(23, 288);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(183, 43);
+            this.btnThongKe.Size = new System.Drawing.Size(218, 43);
             this.btnThongKe.TabIndex = 4;
             this.btnThongKe.Text = "Thống kê doanh thu";
             this.btnThongKe.UseVisualStyleBackColor = true;
@@ -65,7 +65,7 @@
             this.btnDonHang.ForeColor = System.Drawing.Color.White;
             this.btnDonHang.Location = new System.Drawing.Point(23, 235);
             this.btnDonHang.Name = "btnDonHang";
-            this.btnDonHang.Size = new System.Drawing.Size(183, 43);
+            this.btnDonHang.Size = new System.Drawing.Size(218, 43);
             this.btnDonHang.TabIndex = 3;
             this.btnDonHang.Text = "Quản lý đơn hàng";
             this.btnDonHang.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             this.btnKhachHang.ForeColor = System.Drawing.Color.White;
             this.btnKhachHang.Location = new System.Drawing.Point(23, 181);
             this.btnKhachHang.Name = "btnKhachHang";
-            this.btnKhachHang.Size = new System.Drawing.Size(183, 43);
+            this.btnKhachHang.Size = new System.Drawing.Size(218, 43);
             this.btnKhachHang.TabIndex = 2;
             this.btnKhachHang.Text = "Quản lý khách hàng";
             this.btnKhachHang.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             this.btnSanPham.ForeColor = System.Drawing.Color.White;
             this.btnSanPham.Location = new System.Drawing.Point(23, 128);
             this.btnSanPham.Name = "btnSanPham";
-            this.btnSanPham.Size = new System.Drawing.Size(183, 43);
+            this.btnSanPham.Size = new System.Drawing.Size(218, 43);
             this.btnSanPham.TabIndex = 1;
             this.btnSanPham.Text = "Quản lý sản phẩm";
             this.btnSanPham.UseVisualStyleBackColor = true;
@@ -114,9 +114,9 @@
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnDangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnDangXuat.Location = new System.Drawing.Point(23, 459);
+            this.btnDangXuat.Location = new System.Drawing.Point(23, 493);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(183, 37);
+            this.btnDangXuat.Size = new System.Drawing.Size(206, 55);
             this.btnDangXuat.TabIndex = 6;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.UseVisualStyleBackColor = false;
@@ -127,9 +127,9 @@
             this.panelMain.BackColor = System.Drawing.Color.White;
             this.panelMain.Controls.Add(this.lblTitle);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(229, 0);
+            this.panelMain.Location = new System.Drawing.Point(261, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(685, 533);
+            this.panelMain.Size = new System.Drawing.Size(1023, 560);
             this.panelMain.TabIndex = 1;
             // 
             // lblTitle
@@ -147,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(914, 533);
+            this.ClientSize = new System.Drawing.Size(1284, 560);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

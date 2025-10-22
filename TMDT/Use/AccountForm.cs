@@ -18,6 +18,8 @@ namespace TMDT.Use
         {
             InitializeComponent();
             LoadCurrentInfo();
+            this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
+
         }
 
         // Load current user's info into fields
@@ -55,6 +57,14 @@ namespace TMDT.Use
         }
 
         // Close the account form
-        
+        private void btnDoiMK_Click(object sender, EventArgs e)
+        {
+            using (var form = new ChangePasswordForm())
+            {
+                form.ShowDialog();
+            }
+        }
+
+
     }
 }

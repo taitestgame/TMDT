@@ -25,6 +25,7 @@
             this.lblTongKhachHang = new System.Windows.Forms.Label();
             this.lblTongMaGiam = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
             this.pnlContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,12 +117,27 @@
             this.btnLamMoi.UseVisualStyleBackColor = false;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
+            // btnDong
+            // 
+            this.btnDong.BackColor = System.Drawing.Color.Gray;
+            this.btnDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDong.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDong.ForeColor = System.Drawing.Color.White;
+            this.btnDong.Location = new System.Drawing.Point(320, 330);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(120, 35);
+            this.btnDong.TabIndex = 3;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = false;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
             // ThongKeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(230, 243, 255);
             this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.lblTitle);
@@ -143,5 +159,6 @@
         private System.Windows.Forms.Label lblTongKhachHang;
         private System.Windows.Forms.Label lblTongMaGiam;
         private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Button btnDong;
     }
 }

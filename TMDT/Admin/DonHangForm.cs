@@ -89,5 +89,9 @@ namespace TMDT.Admin
         {
             LoadOrders();
         }
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

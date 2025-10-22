@@ -44,7 +44,8 @@ namespace TMDT.Use
         private void LoadCategoriesGrid()
         {
             pnlContent.Controls.Clear();
-            pnlContent.AutoScroll = true;
+            this.pnlContent.VerticalScroll.Value = 0;
+            this.pnlContent.PerformLayout();
 
             using (var db = new Model1())
             {
@@ -199,7 +200,8 @@ namespace TMDT.Use
         private void LoadProductsGrid(int? categoryId = null)
         {
             this.pnlContent.Controls.Clear();
-            this.pnlContent.AutoScroll = true;
+            this.pnlContent.VerticalScroll.Value = 0;
+            this.pnlContent.PerformLayout();
             var db = new Model1();
 
             var bus = new ProductBUS();
@@ -343,7 +345,7 @@ namespace TMDT.Use
 
             this.pnlContent.AutoScrollMinSize = new Size(0, y + cardHeight + padding);
         }
-
+        
         /// <summary>
         /// Hàm vẽ khung bo góc (giúp card nhìn mềm mại hơn)
         /// </summary>

@@ -35,21 +35,22 @@
             this.dgvGioHang.BackgroundColor = System.Drawing.Color.White;
             this.dgvGioHang.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGioHang.Location = new System.Drawing.Point(30, 30);
+            this.dgvGioHang.Location = new System.Drawing.Point(34, 32);
             this.dgvGioHang.Name = "dgvGioHang";
             this.dgvGioHang.ReadOnly = true;
             this.dgvGioHang.RowHeadersVisible = false;
+            this.dgvGioHang.RowHeadersWidth = 51;
             this.dgvGioHang.RowTemplate.Height = 25;
-            this.dgvGioHang.Size = new System.Drawing.Size(620, 250);
+            this.dgvGioHang.Size = new System.Drawing.Size(709, 267);
             this.dgvGioHang.TabIndex = 0;
             // 
             // lblTongTien
             // 
             this.lblTongTien.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTongTien.ForeColor = System.Drawing.Color.FromArgb(0, 102, 204);
-            this.lblTongTien.Location = new System.Drawing.Point(30, 290);
+            this.lblTongTien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.lblTongTien.Location = new System.Drawing.Point(34, 309);
             this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(250, 30);
+            this.lblTongTien.Size = new System.Drawing.Size(286, 32);
             this.lblTongTien.TabIndex = 1;
             this.lblTongTien.Text = "Tổng tiền: 0đ";
             this.lblTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -58,29 +59,29 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label1.Location = new System.Drawing.Point(30, 340);
+            this.label1.Location = new System.Drawing.Point(34, 363);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 19);
+            this.label1.Size = new System.Drawing.Size(109, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mã giảm giá:";
             // 
             // txtMaGiamGia
             // 
             this.txtMaGiamGia.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtMaGiamGia.Location = new System.Drawing.Point(130, 337);
+            this.txtMaGiamGia.Location = new System.Drawing.Point(159, 360);
             this.txtMaGiamGia.Name = "txtMaGiamGia";
-            this.txtMaGiamGia.Size = new System.Drawing.Size(150, 25);
+            this.txtMaGiamGia.Size = new System.Drawing.Size(195, 30);
             this.txtMaGiamGia.TabIndex = 3;
             // 
             // btnApDung
             // 
-            this.btnApDung.BackColor = System.Drawing.Color.FromArgb(0, 102, 204);
+            this.btnApDung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnApDung.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnApDung.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnApDung.ForeColor = System.Drawing.Color.White;
-            this.btnApDung.Location = new System.Drawing.Point(300, 335);
+            this.btnApDung.Location = new System.Drawing.Point(381, 357);
             this.btnApDung.Name = "btnApDung";
-            this.btnApDung.Size = new System.Drawing.Size(100, 30);
+            this.btnApDung.Size = new System.Drawing.Size(114, 38);
             this.btnApDung.TabIndex = 4;
             this.btnApDung.Text = "Áp dụng";
             this.btnApDung.UseVisualStyleBackColor = false;
@@ -88,13 +89,13 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.BackColor = System.Drawing.Color.FromArgb(0, 153, 51);
+            this.btnThanhToan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
             this.btnThanhToan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThanhToan.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnThanhToan.ForeColor = System.Drawing.Color.White;
-            this.btnThanhToan.Location = new System.Drawing.Point(470, 335);
+            this.btnThanhToan.Location = new System.Drawing.Point(537, 357);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(120, 35);
+            this.btnThanhToan.Size = new System.Drawing.Size(137, 37);
             this.btnThanhToan.TabIndex = 5;
             this.btnThanhToan.Text = "Thanh toán";
             this.btnThanhToan.UseVisualStyleBackColor = false;
@@ -105,10 +106,10 @@
             this.btnDong.BackColor = System.Drawing.Color.White;
             this.btnDong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDong.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnDong.ForeColor = System.Drawing.Color.FromArgb(0, 102, 204);
-            this.btnDong.Location = new System.Drawing.Point(600, 335);
+            this.btnDong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnDong.Location = new System.Drawing.Point(686, 357);
             this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(80, 35);
+            this.btnDong.Size = new System.Drawing.Size(91, 37);
             this.btnDong.TabIndex = 6;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = false;
@@ -116,10 +117,10 @@
             // 
             // CartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(230, 243, 255);
-            this.ClientSize = new System.Drawing.Size(720, 400);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.ClientSize = new System.Drawing.Size(823, 427);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.btnApDung);

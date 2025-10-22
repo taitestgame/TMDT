@@ -38,7 +38,7 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1029, 64);
+            this.pnlHeader.Size = new System.Drawing.Size(1072, 72);
             this.pnlHeader.TabIndex = 0;
             // 
             // btnLogout
@@ -48,9 +48,9 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnLogout.Location = new System.Drawing.Point(869, 16);
+            this.btnLogout.Location = new System.Drawing.Point(912, 16);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(148, 32);
+            this.btnLogout.Size = new System.Drawing.Size(148, 42);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Đăng xuất";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -75,9 +75,9 @@
             this.pnlSidebar.Controls.Add(this.btnProducts);
             this.pnlSidebar.Controls.Add(this.btnHome);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 64);
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 72);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(206, 469);
+            this.pnlSidebar.Size = new System.Drawing.Size(206, 572);
             this.pnlSidebar.TabIndex = 1;
             // 
             // btnProfile
@@ -140,9 +140,9 @@
             // 
             this.pnlContent.BackColor = System.Drawing.Color.White;
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(206, 64);
+            this.pnlContent.Location = new System.Drawing.Point(206, 72);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(823, 469);
+            this.pnlContent.Size = new System.Drawing.Size(866, 572);
             this.pnlContent.TabIndex = 2;
             // 
             // UserMain
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1029, 533);
+            this.ClientSize = new System.Drawing.Size(1072, 644);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlSidebar);
             this.Controls.Add(this.pnlHeader);
