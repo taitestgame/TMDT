@@ -69,5 +69,28 @@ namespace TMDT.Use
         {
             this.Close();
         }
+
+        public void FocusOrder(int orderId)
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dgvDonHang.Rows)
+                {
+                    if (row.Cells["OrderID"].Value != null &&
+                        Convert.ToInt32(row.Cells["OrderID"].Value) == orderId)
+                    {
+                        row.Selected = true;
+                        dgvDonHang.FirstDisplayedScrollingRowIndex = row.Index;
+                        break;
+                    }
+                }
+            }
+            catch
+            {
+                // Ignore errors if grid is empty or not ready
+            }
+        }
+
+
     }
 }

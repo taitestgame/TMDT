@@ -399,5 +399,11 @@ namespace TMDT.Use
                 form.ShowDialog();
             }
         }
+
+        private void btnLichSu_Click(object sender, EventArgs e)
+        {
+            OrderHistoryForm history = new OrderHistoryForm();
+            history.ShowDialog();
+        }
     }
 }

@@ -65,44 +65,65 @@ namespace TMDT.Use
                 return;
             }
 
-            using (var db = new Model1())
+            try
             {
-                var order = new OrderTbl
-                {
-                    CustomerID = user.CustomerID,
-                    OrderDate = DateTime.Now,
-                    Status = "Paid",
-                    SubTotal = tongTienNhanDuoc,
-                    ShippingFee = 30000,
-                    TaxAmount = 0,
-                    DiscountAmount = 0,
-                    TotalAmount = tongTienNhanDuoc + 30000
-                };
+                int orderIdVuaTao; // để lưu lại OrderID vừa tạo
 
-                db.OrderTbls.Add(order);
-                db.SaveChanges();
-
-                var items = db.CartItems.Where(ci => ci.Cart.CustomerID == user.CustomerID).ToList();
-                foreach (var ci in items)
+                using (var db = new Model1())
                 {
-                    db.OrderItems.Add(new OrderItem
+                    var order = new OrderTbl
                     {
-                        OrderID = order.OrderID,
-                        VariantID = ci.VariantID,
-                        SKU = ci.ProductVariant.SKU,
-                        ProductName = ci.ProductVariant.Product.Name,
-                        Quantity = ci.Quantity,
-                        UnitPrice = ci.UnitPrice,
-                        TotalPrice = ci.UnitPrice * ci.Quantity
-                    });
+                        CustomerID = user.CustomerID,
+                        OrderDate = DateTime.Now,
+                        Status = "Paid",
+                        SubTotal = tongTienNhanDuoc,
+                        ShippingFee = 30000,
+                        TaxAmount = 0,
+                        DiscountAmount = 0,
+                        TotalAmount = tongTienNhanDuoc + 30000
+                    };
+
+                    db.OrderTbls.Add(order);
+                    db.SaveChanges(); // cần lưu để lấy OrderID
+                    orderIdVuaTao = order.OrderID;
+
+                    var items = db.CartItems.Where(ci => ci.Cart.CustomerID == user.CustomerID).ToList();
+                    foreach (var ci in items)
+                    {
+                        db.OrderItems.Add(new OrderItem
+                        {
+                            OrderID = order.OrderID,
+                            VariantID = ci.VariantID,
+                            SKU = ci.ProductVariant.SKU,
+                            ProductName = ci.ProductVariant.Product.Name,
+                            Quantity = ci.Quantity,
+                            UnitPrice = ci.UnitPrice,
+                            TotalPrice = ci.UnitPrice * ci.Quantity
+                        });
+                    }
+
+                    db.CartItems.RemoveRange(items);
+                    db.SaveChanges();
                 }
 
-                db.CartItems.RemoveRange(items);
-                db.SaveChanges();
-            }
+                MessageBox.Show("Đặt hàng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            MessageBox.Show("Đặt hàng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+                //  Mở form lịch sử đơn hàng
+                using (var history = new OrderHistoryForm())
+                {
+                    // tuỳ chọn: nếu muốn focus vào đơn hàng vừa đặt
+                    history.Shown += (s, ev) => history.FocusOrder(orderIdVuaTao);
+
+
+                    history.ShowDialog();
+                }
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi khi đặt hàng:\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

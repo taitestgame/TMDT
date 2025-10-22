@@ -26,6 +26,7 @@
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnLichSu = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.pnlSidebar.Controls.Add(this.btnLichSu);
             this.pnlSidebar.Controls.Add(this.btnProfile);
             this.pnlSidebar.Controls.Add(this.btnCart);
             this.pnlSidebar.Controls.Add(this.btnProducts);
@@ -145,6 +147,20 @@
             this.pnlContent.Size = new System.Drawing.Size(866, 572);
             this.pnlContent.TabIndex = 2;
             // 
+            // btnLichSu
+            // 
+            this.btnLichSu.BackColor = System.Drawing.Color.White;
+            this.btnLichSu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLichSu.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnLichSu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnLichSu.Location = new System.Drawing.Point(23, 332);
+            this.btnLichSu.Name = "btnLichSu";
+            this.btnLichSu.Size = new System.Drawing.Size(160, 43);
+            this.btnLichSu.TabIndex = 4;
+            this.btnLichSu.Text = "Lịch sử đơn";
+            this.btnLichSu.UseVisualStyleBackColor = false;
+            this.btnLichSu.Click += new System.EventHandler(this.btnLichSu_Click);
+            // 
             // UserMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,5 +194,6 @@
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Button btnLichSu;
     }
 }
