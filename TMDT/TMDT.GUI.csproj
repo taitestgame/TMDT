@@ -151,6 +151,9 @@
     <EmbeddedResource Include="Admin\DonHangForm.resx">
       <DependentUpon>DonHangForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ThongKeForm.resx">
+      <DependentUpon>ThongKeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

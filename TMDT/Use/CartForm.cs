@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
 using TMDT.BUS;
 using TMDT.DAL;
 
@@ -8,14 +8,32 @@ namespace TMDT.Use
 {
     public partial class CartForm : Form
     {
-        // Load the current user's cart when opening the form
+        private decimal tongTienHienTai = 0;
+
         public CartForm()
         {
             InitializeComponent();
             LoadCart();
+            CaiDatUI();
         }
 
-        // Bind the cart items to the grid and show total
+        private void CaiDatUI()
+        {
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            lblTongTien.Font = new System.Drawing.Font("Segoe UI", 11, System.Drawing.FontStyle.Bold);
+            btnThanhToan.BackColor = System.Drawing.Color.SteelBlue;
+            btnThanhToan.ForeColor = System.Drawing.Color.White;
+            btnThanhToan.FlatStyle = FlatStyle.Flat;
+            btnThanhToan.FlatAppearance.BorderSize = 0;
+
+            dgvGioHang.BorderStyle = BorderStyle.None;
+            dgvGioHang.BackgroundColor = System.Drawing.Color.White;
+            dgvGioHang.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10);
+        }
+
         private void LoadCart()
         {
             var user = Session.CurrentCustomer;
@@ -25,37 +43,30 @@ namespace TMDT.Use
             var items = cartBus.GetCartItems(user.CustomerID)
                 .Select(ci => new
                 {
-                    CartItemID = ci.CartItemID,
+                    ci.CartItemID,
                     Product = ci.ProductVariant.Product.Name,
-                    VariantSKU = ci.ProductVariant.SKU,
-                    Quantity = ci.Quantity,
-                    UnitPrice = ci.UnitPrice,
+                    SKU = ci.ProductVariant.SKU,
+                    ci.Quantity,
+                    ci.UnitPrice,
                     Total = ci.UnitPrice * ci.Quantity
                 })
                 .ToList();
 
-            this.dgvGioHang.DataSource = items;
-            var total = Math.Round(items.Sum(i => i.Total));
-            this.lblTongTien.Text = $"Tổng tiền: {total:N0} đ"; // N0: group separators, no decimals
+            dgvGioHang.DataSource = items;
+            tongTienHienTai = Math.Round(items.Sum(i => i.Total));
+            lblTongTien.Text = $"Tổng tiền: {tongTienHienTai:N0} đ";
         }
 
-        // Apply a coupon code (optional demo: just reduces 10% if code starts with CP)
         private void btnApDung_Click(object sender, EventArgs e)
         {
-            var code = this.txtMaGiamGia.Text?.Trim();
+            var code = txtMaGiamGia.Text?.Trim();
             if (string.IsNullOrWhiteSpace(code)) return;
 
             if (code.StartsWith("CP", StringComparison.OrdinalIgnoreCase))
             {
-                // Simple demo: subtract 10%
-                var currentText = this.lblTongTien.Text;
-                var digits = new string(currentText.Where(char.IsDigit).ToArray());
-                if (decimal.TryParse(digits, out var raw))
-                {
-                    var discounted = raw * 0.9m;
-                    this.lblTongTien.Text = $"Tổng tiền: {discounted:0,0} đ";
-                    MessageBox.Show("Áp dụng mã giảm giá 10% (demo)");
-                }
+                tongTienHienTai *= 0.9m;
+                lblTongTien.Text = $"Tổng tiền: {tongTienHienTai:N0} đ";
+                MessageBox.Show("Áp dụng mã giảm giá 10% thành công!");
             }
             else
             {
@@ -63,16 +74,15 @@ namespace TMDT.Use
             }
         }
 
-        // Proceed to checkout
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            using (var checkout = new CheckoutForm())
+            // Truyền trực tiếp tổng tiền sang form Checkout
+            using (var checkout = new CheckoutForm(tongTienHienTai))
             {
                 checkout.ShowDialog();
             }
         }
 
-        // Close cart form
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
