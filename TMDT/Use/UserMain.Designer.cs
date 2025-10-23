@@ -21,12 +21,12 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnLichSu = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnCart = new System.Windows.Forms.Button();
             this.btnProducts = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btnLichSu = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
@@ -82,13 +82,27 @@
             this.pnlSidebar.Size = new System.Drawing.Size(206, 572);
             this.pnlSidebar.TabIndex = 1;
             // 
+            // btnLichSu
+            // 
+            this.btnLichSu.BackColor = System.Drawing.Color.White;
+            this.btnLichSu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLichSu.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnLichSu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnLichSu.Location = new System.Drawing.Point(23, 259);
+            this.btnLichSu.Name = "btnLichSu";
+            this.btnLichSu.Size = new System.Drawing.Size(160, 43);
+            this.btnLichSu.TabIndex = 4;
+            this.btnLichSu.Text = "Lịch sử đơn";
+            this.btnLichSu.UseVisualStyleBackColor = false;
+            this.btnLichSu.Click += new System.EventHandler(this.btnLichSu_Click);
+            // 
             // btnProfile
             // 
             this.btnProfile.BackColor = System.Drawing.Color.White;
             this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnProfile.Location = new System.Drawing.Point(23, 256);
+            this.btnProfile.Location = new System.Drawing.Point(23, 338);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Size = new System.Drawing.Size(160, 43);
             this.btnProfile.TabIndex = 3;
@@ -146,20 +160,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(866, 572);
             this.pnlContent.TabIndex = 2;
-            // 
-            // btnLichSu
-            // 
-            this.btnLichSu.BackColor = System.Drawing.Color.White;
-            this.btnLichSu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLichSu.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnLichSu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnLichSu.Location = new System.Drawing.Point(23, 332);
-            this.btnLichSu.Name = "btnLichSu";
-            this.btnLichSu.Size = new System.Drawing.Size(160, 43);
-            this.btnLichSu.TabIndex = 4;
-            this.btnLichSu.Text = "Lịch sử đơn";
-            this.btnLichSu.UseVisualStyleBackColor = false;
-            this.btnLichSu.Click += new System.EventHandler(this.btnLichSu_Click);
             // 
             // UserMain
             // 

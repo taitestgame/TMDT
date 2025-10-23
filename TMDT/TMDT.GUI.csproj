@@ -203,6 +203,9 @@
       <DependentUpon>UserMain.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="bin\Debug\TMDT.BUS.dll.config" />
+    <None Include="bin\Debug\TMDT.DAL.dll.config" />
+    <None Include="bin\Debug\TMDT.exe.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -238,6 +241,61 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Images\1.jpg" />
+    <Content Include="bin\Debug\Images\10.jpg" />
+    <Content Include="bin\Debug\Images\11.jpg" />
+    <Content Include="bin\Debug\Images\12.jpg" />
+    <Content Include="bin\Debug\Images\13.jpg" />
+    <Content Include="bin\Debug\Images\14.jpg" />
+    <Content Include="bin\Debug\Images\15.jpg" />
+    <Content Include="bin\Debug\Images\16.jpg" />
+    <Content Include="bin\Debug\Images\17.jpg" />
+    <Content Include="bin\Debug\Images\18.jpg" />
+    <Content Include="bin\Debug\Images\19.jpg" />
+    <Content Include="bin\Debug\Images\2.jpg" />
+    <Content Include="bin\Debug\Images\20.jpg" />
+    <Content Include="bin\Debug\Images\2068_tai_nghe_bluetooth_sony_wh_1000xm3__1__1_1.jpg" />
+    <Content Include="bin\Debug\Images\23109-up5401za-kn101w.png" />
+    <Content Include="bin\Debug\Images\3.jpg" />
+    <Content Include="bin\Debug\Images\32w830k-3_1649317795.png" />
+    <Content Include="bin\Debug\Images\4.jpg" />
+    <Content Include="bin\Debug\Images\4331-ao-thun-nu-hinh-2-chu-tho-1.jpg" />
+    <Content Include="bin\Debug\Images\5.jpg" />
+    <Content Include="bin\Debug\Images\548e103d31d2952b748f18f04406a434_37d5015da5cd409790f296c97c279909_89c4cdbacbc647a9a61c1b22fb4fa7b4.png" />
+    <Content Include="bin\Debug\Images\6.jpg" />
+    <Content Include="bin\Debug\Images\7.jpg" />
+    <Content Include="bin\Debug\Images\8.jpg" />
+    <Content Include="bin\Debug\Images\9.jpg" />
+    <Content Include="bin\Debug\Images\bibala1__1__73e6031ea76146db8b66d557f254e978_master.png" />
+    <Content Include="bin\Debug\Images\dell-xps-13-9340-ultra-7-hxrgt2-1-638708028116982814-750x500.jpg" />
+    <Content Include="bin\Debug\Images\image-20240508180323597.jpg" />
+    <Content Include="bin\Debug\Images\images %281%29.jpg" />
+    <Content Include="bin\Debug\Images\images %282%29.jpg" />
+    <Content Include="bin\Debug\Images\images %283%29.jpg" />
+    <Content Include="bin\Debug\Images\images.jpg" />
+    <Content Include="bin\Debug\Images\iphone-15-plus-vang-1-650x650.jpg" />
+    <Content Include="bin\Debug\Images\kinh-nghiem-mua-sam-noi-com-dien-4.jpg" />
+    <Content Include="bin\Debug\Images\nhasachmienphi-truyen-tranh-doremon.jpg" />
+    <Content Include="bin\Debug\Images\samsung-galaxy-s25-fe-navy-thumbai-600x600.jpg" />
+    <Content Include="bin\Debug\Images\sonmoicuamy-7116.jpg" />
+    <Content Include="bin\Debug\Images\tai-nghe-bluetooth-airpods-pro-2nd-gen-usb-c-charge-apple-thumb-12-1-650x650.png" />
+    <Content Include="bin\Debug\Images\wdd002s5-3-b03__4__403d0743e22141a4830b282efe15eec5.jpg" />
+    <Content Include="bin\Debug\Images\z5758993730474_0d4401e0072d39371079d21fc82bd8d3_d7d9c5bfc7104e2095346048ec104b45.jpg" />
+    <Content Include="bin\Debug\TMDT.BUS.dll" />
+    <Content Include="bin\Debug\TMDT.BUS.pdb" />
+    <Content Include="bin\Debug\TMDT.DAL.dll" />
+    <Content Include="bin\Debug\TMDT.DAL.pdb" />
+    <Content Include="bin\Debug\TMDT.exe" />
+    <Content Include="bin\Debug\TMDT.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

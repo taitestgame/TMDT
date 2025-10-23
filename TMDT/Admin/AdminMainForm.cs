@@ -191,7 +191,10 @@ namespace TMDT.Admin
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            Login login = new Login();
             this.Close();
+            
+
         }
     }
 }
