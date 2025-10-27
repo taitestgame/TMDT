@@ -125,7 +125,8 @@
             this.cboPhuongThuc.Items.AddRange(new object[] {
             "Tiền mặt khi nhận hàng",
             "Chuyển khoản ngân hàng",
-            "Ví điện tử (Momo, ZaloPay)"});
+            "Ví điện tử (Momo, ZaloPay)",
+            "Thanh toán QR Code"});
             this.cboPhuongThuc.Location = new System.Drawing.Point(263, 274);
             this.cboPhuongThuc.Name = "cboPhuongThuc";
             this.cboPhuongThuc.Size = new System.Drawing.Size(342, 31);

@@ -58,6 +58,97 @@ namespace TMDT.Use
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
+            // Kiểm tra phương thức thanh toán
+            string phuongThuc = cboPhuongThuc.SelectedItem?.ToString() ?? "";
+
+            if (phuongThuc.Contains("QR"))
+            {
+                // Thanh toán QR Code
+                ProcessQRPayment();
+            }
+            else
+            {
+                // Thanh toán thông thường
+                ProcessNormalPayment();
+            }
+        }
+
+        private void ProcessQRPayment()
+        {
+            var user = Session.CurrentCustomer;
+            if (user == null)
+            {
+                MessageBox.Show("Bạn cần đăng nhập trước khi thanh toán.");
+                return;
+            }
+
+            try
+            {
+                int orderIdVuaTao;
+                decimal totalWithShipping = tongTienNhanDuoc + 30000;
+
+                using (var db = new Model1())
+                {
+                    var order = new OrderTbl
+                    {
+                        CustomerID = user.CustomerID,
+                        OrderDate = DateTime.Now,
+                        Status = "Pending",
+                        SubTotal = tongTienNhanDuoc,
+                        ShippingFee = 30000,
+                        TaxAmount = 0,
+                        DiscountAmount = 0,
+                        TotalAmount = totalWithShipping
+                    };
+
+                    db.OrderTbls.Add(order);
+                    db.SaveChanges();
+                    orderIdVuaTao = order.OrderID;
+
+                    var items = db.CartItems.Where(ci => ci.Cart.CustomerID == user.CustomerID).ToList();
+                    foreach (var ci in items)
+                    {
+                        db.OrderItems.Add(new OrderItem
+                        {
+                            OrderID = order.OrderID,
+                            VariantID = ci.VariantID,
+                            SKU = ci.ProductVariant.SKU,
+                            ProductName = ci.ProductVariant.Product.Name,
+                            Quantity = ci.Quantity,
+                            UnitPrice = ci.UnitPrice,
+                            TotalPrice = ci.UnitPrice * ci.Quantity
+                        });
+                    }
+
+                    db.CartItems.RemoveRange(items);
+                    db.SaveChanges();
+                }
+
+                // Mở form QR Code
+                using (var qrForm = new QRCodePaymentForm(orderIdVuaTao, totalWithShipping))
+                {
+                    if (qrForm.ShowDialog() == DialogResult.OK)
+                    {
+                        MessageBox.Show("Thanh toán thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        using (var history = new OrderHistoryForm())
+                        {
+                            history.Shown += (s, ev) => history.FocusOrder(orderIdVuaTao);
+                            history.ShowDialog();
+                        }
+
+                        this.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi khi đặt hàng:\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ProcessNormalPayment()
+        {
             var user = Session.CurrentCustomer;
             if (user == null)
             {

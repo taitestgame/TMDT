@@ -55,6 +55,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="CustomerBUS.cs" />
     <Compile Include="OrderBUS.cs" />
+    <Compile Include="PaymentBUS.cs" />
     <Compile Include="ProductBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
