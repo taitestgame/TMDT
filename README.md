@@ -35,6 +35,47 @@ TMDT.sln
 
 ---
 
+## 🧠 Cách hoạt động theo 3 lớp (GUI – BUS – DAL)
+
+### 1) DAL (Data Access Layer) – Truy cập dữ liệu
+- Sử dụng Entity Framework 6 Code-First với `DbContext` là `Model1`.
+- Mỗi bảng là một entity: `Product`, `ProductImage`, `Category`, `Customer`, `OrderTbl`, `OrderItem`, `Payment`, `Review`, `Shipment`, `Coupon`, `Inventory`, `Address`, `ProductVariant`, v.v.
+- Migrations: quản lý thay đổi schema. Ví dụ: `AddIsAdminToCustomer` thêm cột `IsAdmin` cho `Customer`, `SeedAdmin` tạo tài khoản admin mẫu.
+- Kết nối CSDL cấu hình trong `App.config` của từng project (`TMDT`, `TMDT.BUS`, `TMDT.DAL`).
+
+Vai trò: DAL chỉ chịu trách nhiệm ánh xạ CSDL ↔ đối tượng C#, không chứa logic nghiệp vụ UI.
+
+### 2) BUS (Business Logic Layer) – Nghiệp vụ
+- Đóng gói logic sử dụng DAL để phục vụ GUI.
+- Các lớp tiêu biểu:
+  - `ProductBUS`: đọc danh sách sản phẩm, lọc theo danh mục, lấy ảnh từ `ProductImages`.
+  - `CartBUS`: thêm/xóa/cập nhật số lượng sản phẩm trong giỏ; tính tổng tiền (có thể áp dụng coupon demo).
+  - `CustomerBUS`: đăng ký/đăng nhập, cập nhật thông tin người dùng.
+  - `OrderBUS`: tạo `OrderTbl` và `OrderItem` khi checkout, cập nhật trạng thái.
+  - `PaymentBUS`: sinh dữ liệu QR, tạo bản ghi thanh toán, xác nhận thanh toán.
+
+Vai trò: BUS là nơi kiểm soát quy tắc nghiệp vụ, xác thực dữ liệu đầu vào cơ bản, điều phối gọi DAL. GUI chỉ gọi BUS, không truy cập DB trực tiếp.
+
+### 3) GUI (Presentation Layer) – Giao diện
+- WinForms ở project `TMDT`, gồm các form theo bối cảnh: `login/*`, `Use/*` (người dùng), `Admin/*` (quản trị).
+- Một số form chính:
+  - `login/Login`: xác thực, đặt `Session.CurrentCustomer`.
+  - `Use/UserMain`: hiển thị danh mục/sản phẩm bằng grid card; gọi `ProductBUS` để lấy dữ liệu.
+  - `Use/CartForm`, `Use/CheckoutForm`: thao tác giỏ hàng, tạo đơn (gọi `OrderBUS`).
+  - `Use/QRCodePaymentForm`: hiển thị QR để thanh toán (gọi `PaymentBUS`).
+  - `Use/OrderHistoryForm`: liệt kê đơn hàng của người dùng.
+  - `Admin/*`: quản lý sản phẩm, khách hàng, đơn hàng, thống kê.
+
+Vai trò: GUI tập trung render giao diện, bắt sự kiện click, nhập liệu. Toàn bộ dữ liệu lấy/ghi thông qua các lớp BUS.
+
+### Luồng tương tác mẫu
+1) Đăng nhập: `Login` → xác thực qua `CustomerBUS` → lưu `Session.CurrentCustomer` → điều hướng Admin/User.
+2) Xem sản phẩm: `UserMain.LoadProductsGrid()` → gọi `ProductBUS.GetAllProducts()` hoặc `GetProductsByCategory()` → render card (ảnh từ `ProductImages`).
+3) Giỏ hàng: `CartForm` gọi `CartBUS` để thêm/xóa/cập nhật, tính tổng.
+4) Thanh toán: `CheckoutForm` gọi `OrderBUS` tạo `OrderTbl`/`OrderItem` → mở `QRCodePaymentForm` nếu chọn QR.
+
+---
+
 ## 🧩 Thiết lập Môi Trường
 
 ### Yêu cầu
@@ -100,6 +141,7 @@ Update-Database
 * **Giỏ hàng:** xem danh sách sản phẩm, áp dụng mã giảm giá (demo), thanh toán
 
 * **Thanh toán:** xác nhận thông tin, tạo đơn hàng, hiển thị trong `OrderHistoryForm`
+* **Thanh toán QR:** tạo mã QR cho đơn vừa tạo, xác nhận qua form QR
 
 * **Lịch sử đơn hàng:** xem chi tiết và trạng thái đơn
 
@@ -131,14 +173,30 @@ Update-Database
 
 ---
 
+## 💳 Thanh toán bằng QR 
 
-## 🧠 Ghi Chú Phát Triển
+### Mục tiêu
+Cung cấp phương thức thanh toán bằng cách hiển thị mã QR để người dùng quét qua ứng dụng ngân hàng/ ví điện tử.
 
-* Sử dụng **Entity Framework 6** theo convention
-* `Customer.IsAdmin` dùng để phân quyền
-* Các lớp trong BUS được public để tầng GUI có thể sử dụng (`ProductBUS`, `CustomerBUS`, …)
-* Lưu thông tin người dùng đăng nhập tại `Session.CurrentCustomer`
-* Ứng dụng bật **TLS 1.2** trong `Program.Main` để tránh lỗi tải ảnh HTTPS
+### Các thành phần
+- GUI: `Use/QRCodePaymentForm`
+- BUS: `PaymentBUS` với các hàm chính:
+  - `GenerateQRData(orderId, totalAmount)`: sinh chuỗi dữ liệu làm nội dung QR (ví dụ: chứa thông tin đơn, số tiền, định dạng tuân theo chuẩn nội bộ).
+  - `CreateQRPayment(orderId, totalAmount)`: tạo bản ghi/phiên thanh toán QR trong DB để theo dõi.
+  - `ConfirmPayment(orderId)`: xác nhận thanh toán thành công (cập nhật trạng thái đơn/payments).
+- Thư viện: `QRCoder` để render ảnh QR từ chuỗi dữ liệu.
 
----
+### Luồng hoạt động
+1) Tại `CheckoutForm`, sau khi tạo đơn (`OrderBUS`), nếu chọn phương thức QR → mở `new QRCodePaymentForm(orderId, totalAmount)`.
+2) `QRCodePaymentForm`:
+   - Gọi `PaymentBUS.GenerateQRData()` để lấy chuỗi QR.
+   - Dùng `QRCoder` tạo bitmap và hiển thị trên `pictureBoxQR`.
+   - Gọi `PaymentBUS.CreateQRPayment()` ghi nhận phiên thanh toán trong DB.
+3) Người dùng quét QR, thực hiện thanh toán trong app ngân hàng.
+4) Bấm nút “Đã thanh toán” trên form:
+   - Gọi `PaymentBUS.ConfirmPayment(orderId)`.
+   - Nếu thành công → thông báo và đóng form (đơn ở trạng thái đã thanh toán).
+5) Nút “Hủy”: đóng form, không xác nhận thanh toán (đơn giữ trạng thái trước đó).
+
+
 
