@@ -12,13 +12,6 @@ namespace TMDT.Use
         private readonly int orderId;
         private readonly decimal totalAmount;
         private readonly PaymentBUS paymentBUS;
-        private System.Windows.Forms.PictureBox pictureBoxQR;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblAmount;
-        private System.Windows.Forms.Label lblOrderID;
-        private System.Windows.Forms.Label lblInstruction;
-        private System.Windows.Forms.Button btnCompleted;
-        private System.Windows.Forms.Button btnCancel;
 
         public QRCodePaymentForm(int orderId, decimal totalAmount)
         {
@@ -28,98 +21,6 @@ namespace TMDT.Use
             this.paymentBUS = new PaymentBUS();
             GenerateQRCode();
             SetupUI();
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-
-            // Form properties
-            this.AutoScaleDimensions = new SizeF(8F, 16F);
-            this.AutoScaleMode = AutoScaleMode.Font;
-            this.BackColor = Color.White;
-            this.ClientSize = new Size(500, 650);
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Text = "Thanh toán QR Code";
-
-            // lblTitle
-            this.lblTitle = new Label();
-            this.lblTitle.AutoSize = false;
-            this.lblTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            this.lblTitle.ForeColor = Color.FromArgb(0, 102, 204);
-            this.lblTitle.Text = "Thanh Toán QR Code";
-            this.lblTitle.TextAlign = ContentAlignment.MiddleCenter;
-            this.lblTitle.Location = new Point(0, 20);
-            this.lblTitle.Size = new Size(500, 35);
-
-            // lblOrderID
-            this.lblOrderID = new Label();
-            this.lblOrderID.Font = new Font("Segoe UI", 10F);
-            this.lblOrderID.Location = new Point(100, 70);
-            this.lblOrderID.Size = new Size(300, 25);
-            this.lblOrderID.TextAlign = ContentAlignment.MiddleCenter;
-
-            // pictureBoxQR
-            this.pictureBoxQR = new PictureBox();
-            this.pictureBoxQR.Location = new Point(100, 110);
-            this.pictureBoxQR.Size = new Size(300, 300);
-            this.pictureBoxQR.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            // lblAmount
-            this.lblAmount = new Label();
-            this.lblAmount.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            this.lblAmount.ForeColor = Color.Red;
-            this.lblAmount.Location = new Point(100, 425);
-            this.lblAmount.Size = new Size(300, 30);
-            this.lblAmount.TextAlign = ContentAlignment.MiddleCenter;
-
-            // lblInstruction
-            this.lblInstruction = new Label();
-            this.lblInstruction.Font = new Font("Segoe UI", 9F);
-            this.lblInstruction.ForeColor = Color.FromArgb(100, 100, 100);
-            this.lblInstruction.Location = new Point(50, 470);
-            this.lblInstruction.Size = new Size(400, 60);
-            this.lblInstruction.TextAlign = ContentAlignment.TopCenter;
-            this.lblInstruction.Text = "Quét mã QR bằng ứng dụng ngân hàng\nhoặc ví điện tử để thanh toán";
-
-            // btnCompleted
-            this.btnCompleted = new Button();
-            this.btnCompleted.BackColor = Color.FromArgb(0, 153, 51);
-            this.btnCompleted.FlatStyle = FlatStyle.Flat;
-            this.btnCompleted.FlatAppearance.BorderSize = 0;
-            this.btnCompleted.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.btnCompleted.ForeColor = Color.White;
-            this.btnCompleted.Location = new Point(100, 550);
-            this.btnCompleted.Size = new Size(145, 40);
-            this.btnCompleted.Text = "Đã thanh toán";
-            this.btnCompleted.Click += BtnCompleted_Click;
-
-            // btnCancel
-            this.btnCancel = new Button();
-            this.btnCancel.BackColor = Color.White;
-            this.btnCancel.FlatStyle = FlatStyle.Flat;
-            this.btnCancel.FlatAppearance.BorderColor = Color.Gray;
-            this.btnCancel.FlatAppearance.BorderSize = 1;
-            this.btnCancel.Font = new Font("Segoe UI", 10F);
-            this.btnCancel.ForeColor = Color.FromArgb(0, 102, 204);
-            this.btnCancel.Location = new Point(255, 550);
-            this.btnCancel.Size = new Size(145, 40);
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.Click += BtnCancel_Click;
-
-            // Add controls
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.lblOrderID);
-            this.Controls.Add(this.pictureBoxQR);
-            this.Controls.Add(this.lblAmount);
-            this.Controls.Add(this.lblInstruction);
-            this.Controls.Add(this.btnCompleted);
-            this.Controls.Add(this.btnCancel);
-
-            this.ResumeLayout(false);
         }
 
         private void GenerateQRCode()
