@@ -50,7 +50,8 @@ namespace TMDT.Use
                     try
                     {
                         // Lấy đường dẫn thư mục chứa ảnh (nằm cùng project)
-                        string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+                        string imageFolder = Path.Combine(Application.StartupPath, @"..\..\Images");
+
                         string imagePath = Path.Combine(imageFolder, img.Url);
 
                         if (File.Exists(imagePath))

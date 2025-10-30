@@ -62,7 +62,8 @@ namespace TMDT.Use
                 int y = padding;
                 int col = 0;
 
-                string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+                string imageFolder = Path.Combine(Application.StartupPath, @"..\..\Images");
+
                 Image defaultImg = SystemIcons.Question.ToBitmap(); // ảnh mặc định nếu thiếu logo
 
                 foreach (var cat in categories)
@@ -217,7 +218,8 @@ namespace TMDT.Use
             int y = padding;
             int col = 0;
 
-            string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+            string imageFolder = Path.Combine(Application.StartupPath, @"..\..\Images");
+
 
             foreach (var p in products)
             {
